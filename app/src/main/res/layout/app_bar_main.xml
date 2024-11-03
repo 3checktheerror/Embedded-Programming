@@ -23,7 +23,7 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/icon_pets"
+            android:id="@+id/icon_list"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"
@@ -31,7 +31,7 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/icon_shopping"
+            android:id="@+id/icon_location"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"
@@ -39,7 +39,7 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/icon_donation"
+            android:id="@+id/icon_cart"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"

@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.Patpet" parent="Base.Theme.Patpet" />
+
+    <style name="Theme.App.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/bg_splash_screen</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/msg04</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Patpet</item>
+    </style>
+
+
 </resources>
