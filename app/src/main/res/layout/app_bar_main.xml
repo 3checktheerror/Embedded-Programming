@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/toolbar_bg_color"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/icon_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_home_24"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/icon_pets"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_format_list_bulleted_24"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/icon_shopping"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_location_searching_24"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/icon_donation"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_shopping_cart_24"
+            app:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/icon_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_settings_24"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>
