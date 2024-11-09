@@ -8,4 +8,6 @@
     <color name="bg_splash_screen">#EFFFCB3B</color>
     <color name="bg_light">#FFF8F8F8</color>
     <color name="bg_dark">#FF2C2C2C</color>
+    <color name="transparent">#00000000</color>
+
 </resources>

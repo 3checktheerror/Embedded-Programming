@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Patpet</string>
+    <string name="loc_type">Locations</string>
+    <string-array name="loc_types_array">
+        <item>Xiamen University Malaysia</item>
+        <item>Sunway Lagoon</item>
+        <item>KLIA Airport</item>
+        <item>Putrajaya International Convention Centre</item>
+    </string-array>
+
 </resources>

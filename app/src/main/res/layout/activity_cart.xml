@@ -8,7 +8,6 @@
     android:background="@drawable/main_bg_color"
     tools:context=".CartActivity">
 
-    <!-- Title Bar with Shopping Cart Icon and Item Count -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,13 +45,12 @@
                 android:text="3"
                 android:textSize="12sp"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/cart_count_background"
+                android:background="@drawable/rounded_background"
                 android:padding="2dp"
                 android:gravity="center"/>
         </RelativeLayout>
     </RelativeLayout>
 
-    <!-- Gray Rounded Search Box with Icon -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -60,29 +58,26 @@
         android:paddingLeft="8dp"
         android:gravity="center_vertical"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/gray_light"
+        android:backgroundTint="@color/white"
         android:backgroundTintMode="src_in"
         android:background="@color/white">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src=""
             android:background="@mipmap/search_icom"
-            android:contentDescription="Search Icon"
-            android:tint="#666666"/>
+            android:contentDescription="Search Icon" />
 
         <EditText
             android:id="@+id/searchBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_marginLeft="8dp"
             android:hint="Search products"
             android:background="@android:color/white"
             android:textColor="#000000"/>
     </LinearLayout>
 
-    <!-- Results and Filter Row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,23 +99,19 @@
             android:layout_height="24dp"
             android:layout_gravity="end"
             android:layout_weight="1"
-            android:src="@drawable/ic_filter"
             android:contentDescription="Filter Icon"/>
     </LinearLayout>
 
-    <!-- Divider Line -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#D3D3D3"
         android:layout_marginTop="4dp"/>
 
-    <!-- Scrollable Category Section -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background=""
         android:paddingBottom="8dp">
 
         <LinearLayout
@@ -128,7 +119,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Sample Category Item -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,10 +128,9 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/cart_row1_01"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_dry_food"
                     android:background="@mipmap/fdcat01"
                     android:contentDescription="Category Image"/>
 
@@ -164,7 +153,7 @@
             android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/cart_row1_02"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@mipmap/fdcat02"
@@ -190,10 +179,9 @@
             android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/cart_row1_03"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_dry_food"
                     android:background="@mipmap/fdcat03"
                     android:contentDescription="Category Image"/>
 
@@ -216,11 +204,10 @@
             android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/cart_row1_04"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@mipmap/fdcat04"
-                    android:background="@drawable/circle_background"
                     android:contentDescription="Category Image"/>
 
                 <TextView
@@ -242,10 +229,9 @@
             android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/cart_row1_05"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_dry_food"
                     android:background="@mipmap/fdcat05"
                     android:contentDescription="Category Image"/>
 
@@ -259,14 +245,10 @@
                     android:gravity="center"/>
             </LinearLayout>
 
-            <!-- Repeat the above LinearLayout for additional categories as needed -->
-
         </LinearLayout>
 
     </HorizontalScrollView>
 
-
-    <!-- Scrollable Product List -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -278,7 +260,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Sample Product Item -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,7 +268,7 @@
                 android:background="@drawable/loc_bg_map3">
 
                 <ImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/cart_row2_01"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@mipmap/ct_sp01"
@@ -301,7 +282,7 @@
                     android:paddingLeft="8dp">
 
                     <TextView
-                        android:id="@+id/productTitle"
+                        android:id="@+id/cart_row2_01_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chicken Meal"
@@ -309,7 +290,7 @@
                         android:textColor="#000000"/>
 
                     <TextView
-                        android:id="@+id/productDescription"
+                        android:id="@+id/cart_row2_01_02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="High in protein and rich in amino acids"
@@ -332,7 +313,6 @@
                             android:textSize="16sp"
                             android:textColor="#FF5722"/>
 
-                        <!-- Adjusted Rating Bar with smaller star size -->
                         <RatingBar
                             android:id="@+id/ratingBar"
                             android:layout_width="wrap_content"
@@ -367,7 +347,7 @@
                 android:background="@drawable/loc_bg_map3">
 
                 <ImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/cart_row2_02"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@mipmap/ct_sp02"
@@ -381,7 +361,7 @@
                     android:paddingLeft="8dp">
 
                     <TextView
-                        android:id="@+id/productTitle"
+                        android:id="@+id/cart_row2_02_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Salmon"
@@ -389,7 +369,7 @@
                         android:textColor="#000000"/>
 
                     <TextView
-                        android:id="@+id/productDescription"
+                        android:id="@+id/cart_row2_02_02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rich in Omega-3"
@@ -405,16 +385,15 @@
                         android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/productPrice"
+                            android:id="@+id/cart_row2_02_03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="RM 15.00"
                             android:textSize="16sp"
                             android:textColor="#FF5722"/>
 
-                        <!-- Adjusted Rating Bar with smaller star size -->
                         <RatingBar
-                            android:id="@+id/ratingBar"
+                            android:id="@+id/cart_row2_02_04"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -426,7 +405,7 @@
                             android:scaleY="0.4"/>
 
                         <TextView
-                            android:id="@+id/ratingText"
+                            android:id="@+id/cart_row2_02_05"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4.5"
@@ -447,7 +426,7 @@
                 android:background="@drawable/loc_bg_map3">
 
                 <ImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/cart_row2_03"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@mipmap/ct_sp03"
@@ -461,7 +440,7 @@
                     android:paddingLeft="8dp">
 
                     <TextView
-                        android:id="@+id/productTitle"
+                        android:id="@+id/cart_row2_03_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Brown Rice"
@@ -469,7 +448,7 @@
                         android:textColor="#000000"/>
 
                     <TextView
-                        android:id="@+id/productDescription"
+                        android:id="@+id/cart_row2_03_02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Provides carbohydrates and fiber"
@@ -485,16 +464,15 @@
                         android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/productPrice"
+                            android:id="@+id/cart_row2_03_03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="RM 18.00"
                             android:textSize="16sp"
                             android:textColor="#FF5722"/>
 
-                        <!-- Adjusted Rating Bar with smaller star size -->
                         <RatingBar
-                            android:id="@+id/ratingBar"
+                            android:id="@+id/cart_row2_03_04"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -506,7 +484,7 @@
                             android:scaleY="0.4"/>
 
                         <TextView
-                            android:id="@+id/ratingText"
+                            android:id="@+id/cart_row2_03_05"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4.5"
@@ -527,7 +505,7 @@
                 android:background="@drawable/loc_bg_map3">
 
                 <ImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/cart_row2_04"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@mipmap/ct_sp04"
@@ -541,7 +519,7 @@
                     android:paddingLeft="8dp">
 
                     <TextView
-                        android:id="@+id/productTitle"
+                        android:id="@+id/cart_row2_04_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Blueberries"
@@ -549,7 +527,7 @@
                         android:textColor="#000000"/>
 
                     <TextView
-                        android:id="@+id/productDescription"
+                        android:id="@+id/cart_row2_04_02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rich in vitamins and antioxidants"
@@ -565,16 +543,15 @@
                         android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/productPrice"
+                            android:id="@+id/cart_row2_04_03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="RM 23.00"
                             android:textSize="16sp"
                             android:textColor="#FF5722"/>
 
-                        <!-- Adjusted Rating Bar with smaller star size -->
                         <RatingBar
-                            android:id="@+id/ratingBar"
+                            android:id="@+id/cart_row2_04_04"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -586,7 +563,7 @@
                             android:scaleY="0.4"/>
 
                         <TextView
-                            android:id="@+id/ratingText"
+                            android:id="@+id/cart_row2_04_05"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4.5"
@@ -599,7 +576,6 @@
 
             </LinearLayout>
 
-            <!-- Repeat for additional products as needed -->
 
         </LinearLayout>
 
