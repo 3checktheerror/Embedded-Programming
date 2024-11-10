@@ -51,6 +51,16 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="0"
+                    android:id="@+id/prod_num"
+                    android:textColor="@color/orange"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/cartIcon"
                     android:layout_width="50dp"
@@ -299,6 +309,7 @@
                             android:textColor="#000000"
                             android:textSize="16sp" />
 
+
                         <TextView
                             android:id="@+id/cart_row2_01_02"
                             android:layout_width="wrap_content"
@@ -323,26 +334,34 @@
                                 android:textColor="#FF5722"
                                 android:textSize="16sp" />
 
-                            <RatingBar
-                                android:id="@+id/ratingBar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:isIndicator="true"
-                                android:numStars="5"
-                                android:rating="5"
-                                android:scaleX="0.4"
-                                android:scaleY="0.4"
-                                android:stepSize="0.5" />
 
-                            <TextView
-                                android:id="@+id/ratingText"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:text="4.5"
-                                android:textColor="#666666"
-                                android:textSize="14sp" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="                                       "
+                                    android:textColor="#666666"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:id="@+id/add_btn_1"
+                                    android:clickable="true"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/add_to_cart_foreground"
+                                    android:contentDescription="Shopping Cart Icon"
+                                    android:layout_marginEnd="0dp" />
+
+
+                            </LinearLayout>
+
+
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -402,26 +421,30 @@
                                 android:textColor="#FF5722"
                                 android:textSize="16sp" />
 
-                            <RatingBar
-                                android:id="@+id/cart_row2_02_04"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:isIndicator="true"
-                                android:numStars="5"
-                                android:rating="5"
-                                android:scaleX="0.4"
-                                android:scaleY="0.4"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
 
-                            <TextView
-                                android:id="@+id/cart_row2_02_05"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:text="4.5"
-                                android:textColor="#666666"
-                                android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/add_btn_2"
+                                    android:clickable="true"
+                                    android:text="                                       "
+                                    android:textColor="#666666"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/add_to_cart_foreground"
+                                    android:contentDescription="Shopping Cart Icon"
+                                    android:layout_marginEnd="0dp" />
+
+
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -481,26 +504,30 @@
                                 android:textColor="#FF5722"
                                 android:textSize="16sp" />
 
-                            <RatingBar
-                                android:id="@+id/cart_row2_03_04"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:isIndicator="true"
-                                android:numStars="5"
-                                android:rating="5"
-                                android:scaleX="0.4"
-                                android:scaleY="0.4"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
 
-                            <TextView
-                                android:id="@+id/cart_row2_03_05"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:text="4.5"
-                                android:textColor="#666666"
-                                android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="                                       "
+                                    android:textColor="#666666"
+                                    android:id="@+id/add_btn_3"
+                                    android:clickable="true"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/add_to_cart_foreground"
+                                    android:contentDescription="Shopping Cart Icon"
+                                    android:layout_marginEnd="0dp" />
+
+
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -560,26 +587,30 @@
                                 android:textColor="#FF5722"
                                 android:textSize="16sp" />
 
-                            <RatingBar
-                                android:id="@+id/cart_row2_04_04"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:isIndicator="true"
-                                android:numStars="5"
-                                android:rating="5"
-                                android:scaleX="0.4"
-                                android:scaleY="0.4"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
 
-                            <TextView
-                                android:id="@+id/cart_row2_04_05"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:text="4.5"
-                                android:textColor="#666666"
-                                android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="                                       "
+                                    android:textColor="#666666"
+                                    android:id="@+id/add_btn_4"
+                                    android:clickable="true"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/add_to_cart_foreground"
+                                    android:contentDescription="Shopping Cart Icon"
+                                    android:layout_marginEnd="0dp" />
+
+
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 

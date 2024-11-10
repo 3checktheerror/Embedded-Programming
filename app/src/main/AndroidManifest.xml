@@ -24,6 +24,7 @@
         <activity android:name=".SettingActivity" android:exported="true" />
         <activity android:name=".SignupActivity" android:exported="true" />
         <activity android:name=".LoginActivity" android:exported="true" />
+        <activity android:name=".ShoppingActivity" android:exported="true" />
 
         <activity
             android:name=".SplashActivity"

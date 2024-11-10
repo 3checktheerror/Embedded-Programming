@@ -3,12 +3,16 @@ package com.patpet.qiu
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class CartActivity : AppCompatActivity(){
+
+    private var itemCount = 0
+    private lateinit var prodNumTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +24,24 @@ class CartActivity : AppCompatActivity(){
             insets
         }
         setupIconClickListeners();
+
+        prodNumTextView = findViewById(R.id.prod_num)
+        val addButton: ImageView = findViewById(R.id.add_btn_1)
+        val cartIcon: ImageView = findViewById(R.id.cartIcon)
+
+        addButton.setOnClickListener {
+            itemCount++
+            prodNumTextView.text = itemCount.toString()
+        }
+
+        cartIcon.setOnClickListener {
+            // Explicit Intent
+            val intent = Intent(this, ShoppingActivity::class.java)
+            intent.putExtra("itemCount", itemCount)
+            intent.putExtra("itemImage", R.mipmap.ct_sp01)
+            startActivity(intent)
+        }
+
     }
 
     private fun setupIconClickListeners() {
