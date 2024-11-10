@@ -9,5 +9,11 @@
     <color name="bg_light">#FFF8F8F8</color>
     <color name="bg_dark">#FF2C2C2C</color>
     <color name="transparent">#00000000</color>
+    <color name="deep_green">#62825D</color>
+    <color name="light_yellow">#FFEB00</color>
+    <color name="shallow_green">#6EC207</color>
+    <color name="pink">#EE66A6</color>
+    <color name="purple_blue">#A594F9</color>
+
 
 </resources>

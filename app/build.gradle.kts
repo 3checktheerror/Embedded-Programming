@@ -53,5 +53,6 @@ dependencies {
     implementation("org.osmdroid:osmdroid-android:6.1.10")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation(kotlin("script-runtime"))
 
 }

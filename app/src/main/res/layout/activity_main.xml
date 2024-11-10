@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_bg_color"
@@ -22,6 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="16dp"
+        android:id="@+id/main_scroll"
         android:background="@drawable/main_bg_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +94,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Join us this Saturday to meet over 50 adorable pets looking for loving families...."
+                            android:id="@+id/textView1_main"
+                            android:text="Virtual adoption events make it easier than ever to find your perfect pet from home. These online events allow potential adopters to browse profiles, watch live streams, and even interact with animals through video calls—all from the comfort of their own living rooms. Many shelters have partnered with technology platforms to create interactive experiences, where adopters can learn about each pet’s personality, needs, and unique traits before making a decision...."
                             android:textSize="14sp"
                             android:textColor="#666666"
                             android:maxLines="3"
@@ -102,10 +104,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/main_more_01"
                             android:text="Read More"
                             android:textSize="14sp"
                             android:textColor="#673AB7"
-                            android:paddingTop="4dp" />
+                            android:paddingTop="4dp"
+                            android:clickable="true"/>
                     </LinearLayout>
 
                     <ImageView
@@ -144,7 +148,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Virtual adoption events make it easier than ever to find your perfect pet from home..."
+                            android:id="@+id/textView2_main"
+                            android:text="Virtual adoption events make it easier than ever to find your perfect pet from home. These online events allow potential adopters to browse profiles, watch live streams, and even interact with animals through video calls—all from the comfort of their own living rooms. Many shelters have partnered with technology platforms to create interactive experiences, where adopters can learn about each pet’s personality, needs, and unique traits before making a decision...."
                             android:textSize="14sp"
                             android:textColor="#666666"
                             android:maxLines="3"
@@ -154,9 +159,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Read More"
+                            android:id="@+id/main_more_02"
                             android:textSize="14sp"
                             android:textColor="#673AB7"
-                            android:paddingTop="4dp" />
+                            android:paddingTop="4dp"
+                            android:clickable="true"/>
                     </LinearLayout>
 
 
@@ -197,7 +204,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" Local shelters celebrate an increase in adoptions, helping more pets find forever homes..."
+                            android:id="@+id/textView3_main"
+                            android:text="Local shelters celebrate an increase in adoptions, helping more pets find forever homes. This heartwarming trend, driven by both community involvement and support from local businesses, has created a wave of hope for many animals. Volunteers and staff members have noted a significant uptick in families and individuals eager to adopt, particularly as more people recognize the companionship and joy pets bring to their lives...."
                             android:textSize="14sp"
                             android:textColor="#666666"
                             android:maxLines="3"
@@ -207,9 +215,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Read More"
+                            android:id="@+id/main_more_03"
                             android:textSize="14sp"
                             android:textColor="#673AB7"
-                            android:paddingTop="4dp" />
+                            android:paddingTop="4dp"
+                            android:clickable="true"/>
                     </LinearLayout>
 
 
@@ -462,5 +472,35 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/fragment_main_01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fragment_main_02"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fragment_main_03"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
