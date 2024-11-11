@@ -6,7 +6,7 @@
     android:id="@+id/activity_shopping"
     tools:context=".ShoppingActivity"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="@drawable/main_bg_color">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,6 +14,13 @@
         android:text="Shopping Cart"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Most recent item:"
+        android:textSize="20sp"
         android:layout_gravity="center"/>
 
     <ImageView
@@ -32,5 +39,18 @@
         android:text="Item Count: 0"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_background"
+        android:onClick="returnToCartActivity"/>
 
 </LinearLayout>

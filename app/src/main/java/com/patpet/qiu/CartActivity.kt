@@ -26,19 +26,53 @@ class CartActivity : AppCompatActivity(){
         setupIconClickListeners();
 
         prodNumTextView = findViewById(R.id.prod_num)
-        val addButton: ImageView = findViewById(R.id.add_btn_1)
-        val cartIcon: ImageView = findViewById(R.id.cartIcon)
+        val addButton1: ImageView = findViewById(R.id.add_btn_1)
+        val addButton2: ImageView = findViewById(R.id.add_btn_2)
+        val addButton3: ImageView = findViewById(R.id.add_btn_3)
+        val addButton4: ImageView = findViewById(R.id.add_btn_4)
 
-        addButton.setOnClickListener {
+
+        val cartIcon: ImageView = findViewById(R.id.cartIcon)
+        var clickedImage = 0;
+
+        addButton1.setOnClickListener {
             itemCount++
             prodNumTextView.text = itemCount.toString()
+            clickedImage = 1;
+        }
+
+        addButton2.setOnClickListener {
+            itemCount++
+            prodNumTextView.text = itemCount.toString()
+            clickedImage = 2;
+        }
+
+        addButton3.setOnClickListener {
+            itemCount++
+            prodNumTextView.text = itemCount.toString()
+            clickedImage = 3;
+        }
+
+        addButton4.setOnClickListener {
+            itemCount++
+            prodNumTextView.text = itemCount.toString()
+            clickedImage = 4;
         }
 
         cartIcon.setOnClickListener {
             // Explicit Intent
             val intent = Intent(this, ShoppingActivity::class.java)
             intent.putExtra("itemCount", itemCount)
-            intent.putExtra("itemImage", R.mipmap.ct_sp01)
+            if(clickedImage == 1) {
+                intent.putExtra("itemImage", R.mipmap.ct_sp01)
+            } else if (clickedImage == 2) {
+                intent.putExtra("itemImage", R.mipmap.ct_sp02)
+            } else if (clickedImage == 3) {
+                intent.putExtra("itemImage", R.mipmap.ct_sp03)
+            } else {
+                intent.putExtra("itemImage", R.mipmap.ct_sp04)
+            }
+
             startActivity(intent)
         }
 
