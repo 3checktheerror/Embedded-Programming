@@ -17,6 +17,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    dataBinding {
+        enable = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -26,10 +35,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -54,5 +65,9 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation(kotlin("script-runtime"))
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.cardview:cardview:1.0.0")
 
 }

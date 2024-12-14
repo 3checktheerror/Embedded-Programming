@@ -16,7 +16,6 @@ class MainFrag1 : Fragment(R.layout.main_frag_01) {
     }
 
     companion object {
-        // 工厂方法，用于创建 Fragment 实例并传递参数
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             MainFrag1().apply {
