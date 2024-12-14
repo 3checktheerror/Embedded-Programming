@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UserAdapter(
     private val users: List<User>,
+    private val currentUsername: String?,
+    private val currentUserRole: String,
     private val onUpdateClicked: (User) -> Unit,
     private val onDeleteClicked: (User) -> Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -34,12 +36,38 @@ class UserAdapter(
                 "Age: ${user.age}\n" +
                 "Address: ${user.address}"
 
-        // 设置头像
         holder.userAvatar.setImageResource(avatars[position % avatars.size])
 
+        // 根据当前用户角色与记录所属用户的关系，控制按钮显示与交互
+        if (currentUserRole == "admin") {
+            // admin可以对所有用户进行update和delete
+            holder.updateButton.visibility = View.VISIBLE
+            holder.deleteButton.visibility = View.VISIBLE
+            holder.updateButton.isEnabled = true
+            holder.deleteButton.isEnabled = true
+        } else {
+            // 非admin用户
+            if (user.username == currentUsername) {
+                // 可以更新自己的条目，但不可以删除
+                holder.updateButton.visibility = View.VISIBLE
+                holder.updateButton.isEnabled = true
+
+                holder.deleteButton.visibility = View.VISIBLE
+                holder.deleteButton.isEnabled = false
+            } else {
+                // 其他用户的条目不可操作
+                holder.updateButton.visibility = View.INVISIBLE
+                holder.deleteButton.visibility = View.INVISIBLE
+            }
+        }
+
         // 按钮点击事件
-        holder.updateButton.setOnClickListener { onUpdateClicked(user) }
-        holder.deleteButton.setOnClickListener { onDeleteClicked(user) }
+        holder.updateButton.setOnClickListener {
+            if (holder.updateButton.isEnabled) onUpdateClicked(user)
+        }
+        holder.deleteButton.setOnClickListener {
+            if (holder.deleteButton.isEnabled) onDeleteClicked(user)
+        }
     }
 
     override fun getItemCount(): Int = users.size

@@ -43,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
             val role = dbHelper.checkUserCredentials(username, password)
             if (role != "") {
                 // 登录成功（此处不区分角色，只要密码匹配即成功，可根据需求变更逻辑）
+                UserSession.username = username
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, UserDisplayActivity::class.java)
                 startActivity(intent)
@@ -66,6 +67,7 @@ class LoginActivity : AppCompatActivity() {
                 val currentAdminCount = dbHelper.getAdminCount()
                 if (role == "admin") {
                     // 用户已经是管理员，直接登录成功
+                    UserSession.username = username
                     Toast.makeText(this, "Login successful as admin", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, UserDisplayActivity::class.java)
                     startActivity(intent)
@@ -73,6 +75,7 @@ class LoginActivity : AppCompatActivity() {
                     // 用户不是管理员，且管理员数量小于 2，将其升级为管理员
                     val updated = dbHelper.updateUserRole(username, "admin")
                     if (updated) {
+                        UserSession.username = username
                         Toast.makeText(this, "Login successful as admin", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, UserDisplayActivity::class.java)
                         startActivity(intent)

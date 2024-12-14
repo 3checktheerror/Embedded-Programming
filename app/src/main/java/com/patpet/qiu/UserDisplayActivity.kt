@@ -14,6 +14,11 @@ class UserDisplayActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var userList: RecyclerView
     private lateinit var adminList: RecyclerView
+    private lateinit var welcomeTextView: TextView
+
+    // 新增两个变量，用于保存当前登录用户的信息
+    private var currentUsername: String? = null
+    private var currentUserRole: String = "user" // 默认为普通用户
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +35,36 @@ class UserDisplayActivity : AppCompatActivity() {
         userList = findViewById(R.id.userList)
         adminList = findViewById(R.id.adminList)
 
+        welcomeTextView = findViewById(R.id.welcomeMessage)
+        currentUsername = UserSession.username ?: "Guest"
+        welcomeTextView.text = "Welcome, $currentUsername!"
+
+        // 根据当前用户名获取当前用户角色
+        currentUsername?.let { uname ->
+            currentUserRole = getUserRole(uname)
+        }
+
         refreshUsers()
+    }
+
+    // 根据用户名获取角色的函数
+    private fun getUserRole(username: String): String {
+        val db = dbHelper.readableDatabase
+        val cursor = db.query(
+            DatabaseHelper.TABLE_NAME,
+            arrayOf(DatabaseHelper.COLUMN_ROLE),
+            "${DatabaseHelper.COLUMN_USERNAME} = ?",
+            arrayOf(username),
+            null, null, null
+        )
+
+        var role = "user"
+        cursor.use {
+            if (it.moveToFirst()) {
+                role = it.getString(it.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ROLE))
+            }
+        }
+        return role
     }
 
     private fun refreshUsers() {
@@ -43,9 +77,12 @@ class UserDisplayActivity : AppCompatActivity() {
         userCount.text = "Users: ${normalUsers.size}"
         adminCount.text = "Admins: ${admins.size}"
 
+        // 将当前用户信息传入 Adapter
         userList.layoutManager = LinearLayoutManager(this)
         userList.adapter = UserAdapter(
             normalUsers,
+            currentUsername = currentUsername,
+            currentUserRole = currentUserRole,
             onUpdateClicked = { user -> handleUpdateUser(user) },
             onDeleteClicked = { user -> handleDeleteUser(user) }
         )
@@ -53,6 +90,8 @@ class UserDisplayActivity : AppCompatActivity() {
         adminList.layoutManager = LinearLayoutManager(this)
         adminList.adapter = UserAdapter(
             admins,
+            currentUsername = currentUsername,
+            currentUserRole = currentUserRole,
             onUpdateClicked = { user -> handleUpdateUser(user) },
             onDeleteClicked = { user -> handleDeleteUser(user) }
         )
@@ -121,4 +160,3 @@ class UserDisplayActivity : AppCompatActivity() {
             .show()
     }
 }
-
