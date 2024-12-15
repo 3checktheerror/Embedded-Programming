@@ -1,7 +1,9 @@
 package com.patpet.qiu
 
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,7 @@ class UserDisplayActivity : AppCompatActivity() {
     private lateinit var userList: RecyclerView
     private lateinit var adminList: RecyclerView
     private lateinit var welcomeTextView: TextView
+    private lateinit var navigateButton: Button
 
     // 新增两个变量，用于保存当前登录用户的信息
     private var currentUsername: String? = null
@@ -39,6 +42,13 @@ class UserDisplayActivity : AppCompatActivity() {
         currentUsername = UserSession.username ?: "Guest"
         welcomeTextView.text = "Welcome, $currentUsername!"
 
+        navigateButton = findViewById(R.id.navigateButton)
+        navigateButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+        }
+
         // 根据当前用户名获取当前用户角色
         currentUsername?.let { uname ->
             currentUserRole = getUserRole(uname)
@@ -51,7 +61,7 @@ class UserDisplayActivity : AppCompatActivity() {
     private fun getUserRole(username: String): String {
         val db = dbHelper.readableDatabase
         val cursor = db.query(
-            DatabaseHelper.TABLE_NAME,
+            DatabaseHelper.TABLE_USERS,
             arrayOf(DatabaseHelper.COLUMN_ROLE),
             "${DatabaseHelper.COLUMN_USERNAME} = ?",
             arrayOf(username),
@@ -101,7 +111,7 @@ class UserDisplayActivity : AppCompatActivity() {
         val db = dbHelper.readableDatabase
         val users = mutableListOf<User>()
         val cursor = db.query(
-            DatabaseHelper.TABLE_NAME,
+            DatabaseHelper.TABLE_USERS,
             null, null, null, null, null, null
         )
         cursor.use {
@@ -134,7 +144,7 @@ class UserDisplayActivity : AppCompatActivity() {
                 put(DatabaseHelper.COLUMN_ADDRESS, updatedUser.address)
             }
             db.update(
-                DatabaseHelper.TABLE_NAME,
+                DatabaseHelper.TABLE_USERS,
                 contentValues,
                 "${DatabaseHelper.COLUMN_USERNAME} = ?",
                 arrayOf(user.username)
@@ -150,7 +160,7 @@ class UserDisplayActivity : AppCompatActivity() {
             .setPositiveButton("Delete") { _, _ ->
                 val db = dbHelper.writableDatabase
                 db.delete(
-                    DatabaseHelper.TABLE_NAME,
+                    DatabaseHelper.TABLE_USERS,
                     "${DatabaseHelper.COLUMN_USERNAME} = ?",
                     arrayOf(user.username)
                 )

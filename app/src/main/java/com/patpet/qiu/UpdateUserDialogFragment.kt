@@ -2,57 +2,71 @@ package com.patpet.qiu
 
 import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.patpet.qiu.databinding.DialogUpdateUserBinding
 
 class UpdateUserDialogFragment : DialogFragment() {
 
-    private var listener: ((User) -> Unit)? = null
+    private var onUpdateListener: ((User) -> Unit)? = null
 
-    private lateinit var binding: DialogUpdateUserBinding
-    private lateinit var user: User
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        binding = DialogUpdateUserBinding.inflate(LayoutInflater.from(context))
-        user = arguments?.getParcelable("user_data")!!
-
-        // 初始化对话框的字段
-        binding.editUsername.setText(user.username)
-        binding.editPhoneNumber.setText(user.phoneNumber)
-        binding.editRole.setText(user.role)
-        binding.editGender.setText(user.gender)
-        binding.editAge.setText(user.age.toString())
-        binding.editAddress.setText(user.address)
-
-        return AlertDialog.Builder(requireContext())
-            .setTitle("Update User")
-            .setView(binding.root)
-            .setPositiveButton("Update") { _, _ ->
-                // 更新用户信息
-                user.username = binding.editUsername.text.toString()
-                user.phoneNumber = binding.editPhoneNumber.text.toString()
-                user.role = binding.editRole.text.toString()
-                user.gender = binding.editGender.text.toString()
-                user.age = binding.editAge.text.toString().toInt()
-                user.address = binding.editAddress.text.toString()
-                listener?.invoke(user)
-            }
-            .setNegativeButton("Cancel", null)
-            .create()
+    // 用于设置更新监听器
+    fun setOnUpdateListener(listener: (User) -> Unit) {
+        onUpdateListener = listener
     }
 
-    fun setOnUpdateListener(callback: (User) -> Unit) {
-        listener = callback
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater = requireActivity().layoutInflater
+        val view = inflater.inflate(R.layout.dialog_update_user, null)
+
+        // 初始化布局中的 EditText
+        val editUsername = view.findViewById<EditText>(R.id.editUsername)
+        val editPhoneNumber = view.findViewById<EditText>(R.id.editPhoneNumber)
+        val editRole = view.findViewById<EditText>(R.id.editRole)
+        val editGender = view.findViewById<EditText>(R.id.editGender)
+        val editAge = view.findViewById<EditText>(R.id.editAge)
+        val editAddress = view.findViewById<EditText>(R.id.editAddress)
+
+        // 获取传递过来的用户信息并填充到输入框中
+        val user = arguments?.getParcelable<User>("user")
+        user?.let {
+            editUsername.setText(it.username)
+            editPhoneNumber.setText(it.phoneNumber)
+            editRole.setText(it.role)
+            editGender.setText(it.gender)
+            editAge.setText(it.age.toString())
+            editAddress.setText(it.address)
+        }
+
+        builder.setView(view)
+            .setPositiveButton("Update") { _, _ ->
+                // 获取输入框中的新数据
+                val updatedUser = User(
+                    username = editUsername.text.toString(),
+                    password = user?.password ?: "", // 保留密码
+                    phoneNumber = editPhoneNumber.text.toString(),
+                    role = editRole.text.toString(),
+                    gender = editGender.text.toString(),
+                    age = editAge.text.toString().toIntOrNull() ?: 0,
+                    address = editAddress.text.toString()
+                )
+                // 触发更新回调
+                onUpdateListener?.invoke(updatedUser)
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.cancel()
+            }
+        return builder.create()
     }
 
     companion object {
+        // 创建实例并传递用户信息
         fun newInstance(user: User): UpdateUserDialogFragment {
             val fragment = UpdateUserDialogFragment()
-            val bundle = Bundle()
-            bundle.putParcelable("user_data", user)
-            fragment.arguments = bundle
+            val args = Bundle()
+            args.putParcelable("user", user)
+            fragment.arguments = args
             return fragment
         }
     }

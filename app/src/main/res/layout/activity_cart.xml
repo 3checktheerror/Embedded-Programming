@@ -1,4 +1,5 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cart"
@@ -7,29 +8,27 @@
     android:background="@drawable/main_bg_color"
     tools:context=".CartActivity">
 
-
+    <!-- 顶部导航栏 -->
     <include
         android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/activity_cart_ly"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/main_bg_color"
         android:orientation="vertical"
+        android:background="@drawable/main_bg_color"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/app_bar_main"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:context=".CartActivity">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -67,7 +66,6 @@
                     android:layout_height="50dp"
                     android:background="@drawable/baseline_shopping_cart_24"
                     android:contentDescription="Shopping Cart Icon" />
-
             </RelativeLayout>
         </RelativeLayout>
 
@@ -118,7 +116,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="end"
-                android:layout_weight="1"
                 android:contentDescription="Filter Icon" />
         </LinearLayout>
 
@@ -280,6 +277,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- 商品1：Chicken Meal -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -309,13 +307,12 @@
                             android:textColor="#000000"
                             android:textSize="16sp" />
 
-
                         <TextView
                             android:id="@+id/cart_row2_01_02"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="High in protein and rich in amino acids"
+                            android:text="High protein"
                             android:textColor="#666666"
                             android:textSize="14sp" />
 
@@ -327,13 +324,12 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/productPrice"
+                                android:id="@+id/productPrice_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RM 25.00"
                                 android:textColor="#FF5722"
                                 android:textSize="16sp" />
-
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -341,33 +337,27 @@
                                 android:orientation="horizontal"
                                 android:gravity="center_vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="                                       "
-                                    android:textColor="#666666"
-                                    android:textSize="14sp" />
+                                <ImageView
+                                    android:id="@+id/update_btn_1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/update_icon"
+                                    android:contentDescription="Update Product Icon" />
 
                                 <ImageView
-                                    android:layout_width="50dp"
                                     android:id="@+id/add_btn_1"
                                     android:clickable="true"
+                                    android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:background="@drawable/add_to_cart_foreground"
-                                    android:contentDescription="Shopping Cart Icon"
-                                    android:layout_marginEnd="0dp" />
-
-
+                                    android:contentDescription="Add to Cart Icon" />
                             </LinearLayout>
-
-
-
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
 
+                <!-- 商品2：Salmon -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -414,7 +404,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/cart_row2_02_03"
+                                android:id="@+id/productPrice_2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RM 15.00"
@@ -427,31 +417,26 @@
                                 android:orientation="horizontal"
                                 android:gravity="center_vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-
-                                    android:clickable="true"
-                                    android:text="                                       "
-                                    android:textColor="#666666"
-                                    android:textSize="14sp" />
-
                                 <ImageView
+                                    android:id="@+id/update_btn_2"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/update_icon"
+                                    android:contentDescription="Update Product Icon" />
+
+                                <ImageView
                                     android:id="@+id/add_btn_2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:background="@drawable/add_to_cart_foreground"
-                                    android:contentDescription="Shopping Cart Icon"
-                                    android:layout_marginEnd="0dp" />
-
-
+                                    android:contentDescription="Add to Cart Icon" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
 
+                <!-- 商品3：Brown Rice -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -486,7 +471,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Provides carbohydrates and fiber"
+                            android:text="Provides fiber"
                             android:textColor="#666666"
                             android:textSize="14sp" />
 
@@ -498,7 +483,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/cart_row2_03_03"
+                                android:id="@+id/productPrice_3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RM 18.00"
@@ -511,43 +496,39 @@
                                 android:orientation="horizontal"
                                 android:gravity="center_vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="                                       "
-                                    android:textColor="#666666"
-                                    android:clickable="true"
-                                    android:textSize="14sp" />
-
                                 <ImageView
+                                    android:id="@+id/update_btn_3"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/update_icon"
+                                    android:contentDescription="Update Product Icon" />
+
+                                <ImageView
                                     android:id="@+id/add_btn_3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:background="@drawable/add_to_cart_foreground"
-                                    android:contentDescription="Shopping Cart Icon"
-                                    android:layout_marginEnd="0dp" />
-
-
+                                    android:contentDescription="Add to Cart Icon" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
 
+                <!-- 商品4：Blueberries -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/loc_bg_map3"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:padding="8dp">d
 
                     <ImageView
                         android:id="@+id/cart_row2_04"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:contentDescription="Product Image"
-                        android:src="@mipmap/ct_sp04" />
+                        android:src="@mipmap/fdcat04" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -569,7 +550,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Rich in vitamins and antioxidants"
+                            android:text="Rich in antioxidants"
                             android:textColor="#666666"
                             android:textSize="14sp" />
 
@@ -581,7 +562,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/cart_row2_04_03"
+                                android:id="@+id/productPrice_4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RM 23.00"
@@ -594,34 +575,26 @@
                                 android:orientation="horizontal"
                                 android:gravity="center_vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="                                       "
-                                    android:textColor="#666666"
-                                    android:clickable="true"
-                                    android:textSize="14sp" />
-
                                 <ImageView
+                                    android:id="@+id/update_btn_4"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/update_icon"
+                                    android:contentDescription="Update Product Icon" />
+
+                                <ImageView
                                     android:id="@+id/add_btn_4"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
                                     android:background="@drawable/add_to_cart_foreground"
-                                    android:contentDescription="Shopping Cart Icon"
-                                    android:layout_marginEnd="0dp" />
-
-
+                                    android:contentDescription="Add to Cart Icon" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-
-
                 </LinearLayout>
 
-
             </LinearLayout>
-
-
         </ScrollView>
 
     </LinearLayout>

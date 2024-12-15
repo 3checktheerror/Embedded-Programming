@@ -1,12 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shopping"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:id="@+id/activity_shopping"
-    tools:context=".ShoppingActivity"
     android:padding="16dp"
-    android:background="@drawable/main_bg_color">
+    android:background="@drawable/main_bg_color"
+    tools:context=".ShoppingActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,40 +19,72 @@
         android:layout_gravity="center"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Most recent item:"
-        android:textSize="20sp"
-        android:layout_gravity="center"/>
-
-    <ImageView
-        android:id="@+id/item_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:contentDescription="Selected Item Image" />
-
-    <TextView
         android:id="@+id/item_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:text="Item Count: 0"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"/>
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/return_button"
+    <!-- 新增的Total Money文本框，初始显示1000 -->
+    <TextView
+        android:id="@+id/total_money_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Money: 1000.00"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:id="@+id/order_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/current_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Amount: 0.00"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Return"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="center"
-        android:background="@drawable/button_background"
-        android:onClick="returnToCartActivity"/>
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
+        <Button
+            android:id="@+id/pay_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pay"
+            android:textSize="18sp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/return_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Return"
+            android:textSize="18sp"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
 </LinearLayout>
